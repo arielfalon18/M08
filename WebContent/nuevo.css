@@ -1,0 +1,57 @@
+body{
+    background-color: cornflowerblue;
+}
+.centroT{
+    text-align: center;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: pink;
+}
+.columnas1{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+.borde{
+    border: 1px solid black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: lightskyblue;
+    height: 78%;
+}
+.centro{
+    margin: 0px auto;
+    display: block;
+}
+.colorB{
+    background-color: yellow;
+    margin-top: 62px;
+    border: 1px solid black;
+    margin-bottom: 40px;
+}
+.textA{
+    text-align: center;
+}
+.centrarfo{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: 72px;
+}
+.PocisionF{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.colorY{
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+.ncredit{
+    background-color: pink;
+    width: 28%;
+}
