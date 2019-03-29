@@ -11,7 +11,7 @@ public class ConnectionDB {
 				Class.forName(DRIVER);
 				conn=DriverManager.getConnection(URL, "SA", "");
 			} catch (ClassNotFoundException | SQLException e) {
-				System.out.println("ERROR "+e);
+				System.err.println("ERROR "+e);
 			}
 			return conn;
 			
