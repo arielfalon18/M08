@@ -22,21 +22,24 @@ public class loginCase {
 			String consultaN="select * from usuario where NOMBRE=?;";
 			psN = conN.prepareStatement(consultaN);
 			psN.setString(1, user);
-			try (ResultSet Respuesta = ps.executeQuery()) {
+			try (ResultSet Respuesta = psN.executeQuery()){
 				if (Respuesta.next()) {
-					return true;
-				}
-			}
-			}else {
-				String consulta ="insert into usuario (nombre,email,password) VALUES (?,?,?);";
-				ps = con.prepareStatement(consulta);
-				ps.setString(1, user);
-				ps.setString(2, upass);
-				ps.setString(3, uEmail);
-				con.commit();
-				
-				if (ps.executeUpdate() ==1) {
-					return true;
+					
+					
+					return false;
+					
+					
+				}else {
+					String consulta ="insert into usuario (nombre,email,password) VALUES (?,?,?);";
+					ps = con.prepareStatement(consulta);
+					ps.setString(1, user);
+					ps.setString(2, upass);
+					ps.setString(3, uEmail);
+					con.commit();
+					
+					if (ps.executeUpdate() ==1) {
+						return true;
+					}
 				}
 			}
 			
