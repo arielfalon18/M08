@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletResponse;
 
 public class loginCase {
-	public static boolean insertUser(String user,String upass, String uEmail) {
+	public static boolean insertUser(String user,String upass, String uEmail) throws SQLException {
 		Connection con;
 		
 		con = ConnectionDB.getConection();
@@ -51,6 +51,8 @@ public class loginCase {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			psN.close();
+			ps.close();
 		}
 		return false;
 	}
