@@ -16,9 +16,10 @@ public class LoginUsuario {
 			ps = con.prepareStatement(consultaL);
 			ps.setString(1, user);
 			ps.setString(2, pass);
-			ResultSet Respuesta = ps.executeQuery();
-			if (Respuesta.next()) {
-				return true;
+			try (ResultSet Respuesta = ps.executeQuery()) {
+				if (Respuesta.next()) {
+					return true;
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
