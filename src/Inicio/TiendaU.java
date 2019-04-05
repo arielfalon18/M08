@@ -4,13 +4,16 @@ import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TiendaU {
 	public static boolean inserTienda(String nick,String seleIMG,String pagamentoM,String cantidad,String comentario) {
 		Connection con;
+		final Logger LOGGER = Logger.getLogger("Inicio");
 		con = ConnectionDB.getConection();
 		PreparedStatement ps =null;
-		System.out.println("TTTTTTTTTTTTTTTTTTTTTT\n"+seleIMG);
+		LOGGER.log(Level.SEVERE, seleIMG.toString());
 
 		try {
 			String consulta ="insert into Tienda (NICK, Producto, Payment, Cantidad, Comments) VALUES (?,?,?,?,?);";
