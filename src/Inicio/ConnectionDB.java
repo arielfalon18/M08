@@ -20,7 +20,7 @@ public class ConnectionDB {
 			
 		}
 		
-		public ConnectionDB() {
+		private ConnectionDB() {
 			super();
 		}
 }
