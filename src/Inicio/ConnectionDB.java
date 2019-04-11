@@ -9,10 +9,12 @@ public class ConnectionDB {
 	static String URL="jdbc:hsqldb:file:C:\\Users\\Super\\eclipse-workspace\\TiendaM08\\WebContent\\WEB-INF\\lib\\srv_db.tmp";
 		public static Connection getConection() {
 			Connection conn=null;
+			String usu="SA";
+			String ps="";
 			final Logger LOGGER = Logger.getLogger("Inicio");
 			try {
 				Class.forName(DRIVER);
-				conn=DriverManager.getConnection(URL, "SA", "");
+				conn=DriverManager.getConnection(URL, usu, ps);
 			} catch (ClassNotFoundException | SQLException e) {
 				LOGGER.log(Level.SEVERE, e.toString());
 			}
