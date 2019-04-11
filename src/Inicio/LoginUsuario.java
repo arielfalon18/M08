@@ -10,9 +10,9 @@ public class LoginUsuario {
 		Connection con;
 		con = ConnectionDB.getConection();
 		PreparedStatement ps =null;
-		
+		String psw="password";
 		try {
-			String consultaL="select * from usuario where NOMBRE=? password=?;";
+			String consultaL="select * from usuario where NOMBRE=? "+psw+"=?;";
 			ps = con.prepareStatement(consultaL);
 			ps.setString(1, user);
 			ps.setString(2, pass);
