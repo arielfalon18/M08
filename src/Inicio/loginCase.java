@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletResponse;
 
 public class loginCase {
+	private loginCase() {}
 	public static boolean insertUser(String user,String upass, String uEmail) throws SQLException {
 		Connection con;
 		
