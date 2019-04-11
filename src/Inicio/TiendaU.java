@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TiendaU {
+	private TiendaU() {}
 	public static boolean inserTienda(String nick,String seleIMG,String pagamentoM,String cantidad,String comentario) {
 		Connection con;
 		final Logger LOGGER = Logger.getLogger("Inicio");
