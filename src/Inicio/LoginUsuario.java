@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginUsuario {
+	private LoginUsuario() {}
 	public static boolean login(String user,String pass) {
 		Connection con;
 		con = ConnectionDB.getConection();
