@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TiendaU {
+	final static Logger LOGGER = Logger.getLogger("Inicio");
 	private TiendaU() {}
 	public static boolean inserTienda(String nick,String seleIMG,String pagamentoM,String cantidad,String comentario) {
 		Connection con;
@@ -62,7 +63,7 @@ public class TiendaU {
 			for (int i = 0; i < texto.length; i++) {
 				
 				respuesr=respuesr+ " "+texto[i]+" ";
-				System.out.println(texto[i]);
+				LOGGER.log(Level.SEVERE, texto[i].toString());
 			}
 		
 		return respuesr;
