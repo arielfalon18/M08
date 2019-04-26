@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.Properties;
+import java.io.InputStream;
+import java.io.FileInputStream;
+
 
 
 /**
@@ -18,6 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/TiendaR")
 public class TiendaR extends HttpServlet {
+	Properties prop = new Properties();
+	InputStream is = null;
+	private static Pattern dato2 =null;
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -40,12 +47,18 @@ public class TiendaR extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			is = new FileInputStream("/datos.properties");
+			prop.load(is);
+		} catch(IOException e) {
+			System.out.println(e.toString());
+		}
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		//EXPRESIONES REGULARES
 		
-		Pattern dato1 = Pattern.compile("^[a-z A-Z 0-9]{1,10}$");
-		Pattern dato2 = Pattern.compile("^[0-9]{1,2}$");
+		Pattern dato1 = Pattern.compile(prop.getProperty("servidor.datos1"));
+		dato2 = Pattern.compile(prop.getProperty("servido.datos2"));
 		String nick = request.getParameter("nick");
 		String comentario = request.getParameter("comentario");
 		String cantidad=request.getParameter("cantidad");

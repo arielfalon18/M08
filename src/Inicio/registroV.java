@@ -10,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Properties;
+import java.io.InputStream;
+import java.io.FileInputStream;
 
 
 
@@ -18,8 +21,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/registroV")
 public class registroV extends HttpServlet {
+	Properties prop = new Properties();
+	InputStream is = null;
 	
 	private static final long serialVersionUID = 1L;
+	private static Pattern dato2 =null;
+	private static Pattern dato3 =null;
 	
        
     /**
@@ -45,10 +52,16 @@ public class registroV extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			is = new FileInputStream("/datos.properties");
+			prop.load(is);
+		} catch(IOException e) {
+			System.out.println(e.toString());
+		}
 		// TODO Auto-generated method stub
-		Pattern dato1 = Pattern.compile("^[a-z 0-9]{1,9}$");
-		Pattern dato2 = Pattern.compile("^[a-z 0-9]{8,}$");
-		Pattern dato3 = Pattern.compile("\\w+\\.?\\w+@\\w+\\.\\w+");
+		Pattern dato1 = Pattern.compile(prop.getProperty("servidor.datos3"));
+		dato2 = Pattern.compile(prop.getProperty("servidor.datos4"));
+		dato3 = Pattern.compile(prop.getProperty("servidor.datos5"));
 		
 		String nick = request.getParameter("nick");
 		String mail = request.getParameter("mail");
