@@ -78,11 +78,16 @@ public class registroV extends HttpServlet {
 			if(ComprobarCorreo.find()) {
 				if(Comprobarpass.find()) {
 					
-					if(loginCase.insertUser(nick,mail,pass)==true) {
-						response.sendRedirect("Ok.jsp");
-						loginCase.insertUser(nick,mail,pass);
-					}else {
-						response.sendRedirect("YaexisteUsuario.jsp");
+					try {
+						if(loginCase.insertUser(nick,mail,pass)==true) {
+							response.sendRedirect("Ok.jsp");
+							loginCase.insertUser(nick,mail,pass);
+						}else {
+							response.sendRedirect("YaexisteUsuario.jsp");
+						}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 				}else {
 					response.sendRedirect("ErrorP.jsp");
