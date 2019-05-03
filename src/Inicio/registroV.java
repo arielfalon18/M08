@@ -25,8 +25,8 @@ public class registroV extends HttpServlet {
 	InputStream is = null;
 	
 	private static final long serialVersionUID = 1L;
-	private static Pattern dato2 =null;
-	private static Pattern dato3 =null;
+	private  Pattern dato2 =null;
+	private  Pattern dato3 =null;
 	
        
     /**
