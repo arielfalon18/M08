@@ -15,7 +15,7 @@ public class TiendaU {
 		final Logger LOGGER = Logger.getLogger("Inicio");
 		con = ConnectionDB.getConection();
 		PreparedStatement ps =null;
-		LOGGER.log(Level.SEVERE, seleIMG.toString());
+		LOGGER.log(Level.SEVERE, seleIMG;
 
 		try {
 			String consulta ="insert into Tienda (NICK, Producto, Payment, Cantidad, Comments) VALUES (?,?,?,?,?);";
