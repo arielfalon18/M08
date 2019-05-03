@@ -20,7 +20,7 @@ public class TiendaU {
 		try {
 			String consulta ="insert into Tienda (NICK, Producto, Payment, Cantidad, Comments) VALUES (?,?,?,?,?);";
 			ps = con.prepareStatement(consulta);
-			LOGGER.log(Level.SEVERE,"\n"+ps.toString());			
+			LOGGER.log(Level.SEVERE,"\n"+ps;			
 
 			ps.setString(1, nick);
 			ps.setString(2, seleIMG);
