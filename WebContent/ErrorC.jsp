@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Error al correo electronico</h1>
+	<h1>Error al correo electronico o error nick</h1>
 </body>
 </html>

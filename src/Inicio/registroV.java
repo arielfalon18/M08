@@ -77,8 +77,8 @@ public class registroV extends HttpServlet {
 		
 		
 		
-		if(ComprobarNick.find()){
-			if(ComprobarCorreo.find()) {
+		
+			if(ComprobarCorreo.find() && ComprobarNick.find()) {
 				if(Comprobarpass.find()) {
 					
 					try {
@@ -97,11 +97,7 @@ public class registroV extends HttpServlet {
 				}	
 			}else {
 				response.sendRedirect("ErrorC.jsp");
-				
 			}	
-		}else {
-			response.sendRedirect("Error.jsp");
-		}
 		
 	}
 
