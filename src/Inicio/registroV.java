@@ -90,7 +90,7 @@ public class registroV extends HttpServlet {
 						}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.log(Level.SEVERE, e.toString());
 					}
 				}else {
 					response.sendRedirect("ErrorP.jsp");
