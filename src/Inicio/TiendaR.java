@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Properties;
 import java.io.InputStream;
 import java.io.FileInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -25,6 +27,7 @@ public class TiendaR extends HttpServlet {
 	Properties prop = new Properties();
 	InputStream is = null;
 	private static Pattern dato2 =null;
+	final Logger LOGGER = Logger.getLogger("Inicio");
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -51,7 +54,7 @@ public class TiendaR extends HttpServlet {
 			is = new FileInputStream("/datos.properties");
 			prop.load(is);
 		} catch(IOException e) {
-			System.out.println(e.toString());
+			LOGGER.log(Level.SEVERE, e.toString());
 		}
 		// TODO Auto-generated method stub
 		doGet(request, response);
