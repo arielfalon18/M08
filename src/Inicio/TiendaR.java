@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 public class TiendaR extends HttpServlet {
 	Properties prop = new Properties();
 	InputStream is = null;
-	private static Pattern dato2 =null;
+	Pattern dato2 =null;
 	final Logger LOGGER = Logger.getLogger("Inicio");
 	private static final long serialVersionUID = 1L;
        
