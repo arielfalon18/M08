@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.io.InputStream;
 import java.io.FileInputStream;
 
@@ -27,6 +29,7 @@ public class registroV extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private  Pattern dato2 =null;
 	private  Pattern dato3 =null;
+	final Logger LOGGER = Logger.getLogger("Inicio");
 	
        
     /**
@@ -56,7 +59,7 @@ public class registroV extends HttpServlet {
 			is = new FileInputStream("/datos.properties");
 			prop.load(is);
 		} catch(IOException e) {
-			System.out.println(e.toString());
+			LOGGER.log(Level.SEVERE, e.toString());
 		}
 		// TODO Auto-generated method stub
 		Pattern dato1 = Pattern.compile(prop.getProperty("servidor.datos3"));
