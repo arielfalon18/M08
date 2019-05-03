@@ -64,7 +64,7 @@ public class TiendaU {
 			for (int i = 0; i < texto.length; i++) {
 				
 				respuesr=respuesr+ " "+texto[i]+" ";
-				LOGGER.log(Level.SEVERE, texto[i].toString());
+				LOGGER.log(Level.SEVERE, texto[i]);
 			}
 		
 		return respuesr;
