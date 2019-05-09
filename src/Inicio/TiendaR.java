@@ -28,7 +28,7 @@ public class TiendaR extends HttpServlet {
 	InputStream is = null;
 	private static final long serialVersionUID = 1L;
 	final Logger LOGGER = Logger.getLogger("Inicio");
-	Pattern dato2 =null;
+	//Pattern dato2 =null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -51,20 +51,20 @@ public class TiendaR extends HttpServlet {
 	 * Te comprobara si introduces todos los botones esto te insertara los datos correspondiente si esta todo bien te llevara al fichero correspondiente
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
+		/*try {
 			is = new FileInputStream("/datos.properties");
 			prop.load(is);
 		} catch(IOException e) {
 			LOGGER.log(Level.SEVERE, e.toString());
 			
-		}
+		}*/
  
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		//EXPRESIONES REGULARES
 		
-		Pattern dato1 = Pattern.compile(prop.getProperty("servidor.datos1"));
-		dato2 = Pattern.compile(prop.getProperty("servido.datos2"));
+		Pattern dato1 = Pattern.compile("^[a-z A-Z 0-9]{1,10}$");
+		Pattern dato2 = Pattern.compile("^[0-9]{1,2}$");
 		String nick = request.getParameter("nick");
 		String comentario = request.getParameter("comentario");
 		String cantidad=request.getParameter("cantidad");

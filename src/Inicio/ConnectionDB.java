@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 public class ConnectionDB {
 	
 	static String DRIVER="org.hsqldb.jdbcDriver";
-	static String URL="jdbc:hsqldb:file:C:\\Users\\Super\\eclipse-workspace\\TiendaM08\\WebContent\\WEB-INF\\lib\\srv_db.tmp";
+	static String URL="jdbc:hsqldb:file:D:\\ECLIPSE\\eclipse\\TiendaM08\\WebContent\\WEB-INF\\lib\\srv_db.tmp";
 		/**
 		 * 
 		 * @return Respuesta de la base de datos

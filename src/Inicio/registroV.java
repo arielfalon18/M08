@@ -60,16 +60,17 @@ public class registroV extends HttpServlet {
 	 * si esta todo bien te llevara al fichero correcto si esta mal te llevara al fichero incorrecto
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
+		/*try {
 			
 			prop.load(new FileInputStream("datos.properties"));
 		} catch(IOException e) {
 			LOGGER.log(Level.SEVERE, e.toString());
-		}
+		}*/
+		//No funciona properties
 		// TODO Auto-generated method stub
-		Pattern dato1 = Pattern.compile(prop.getProperty("servidor.datos3"));
-		dato2 = Pattern.compile(prop.getProperty("servidor.datos4"));
-		dato3 = Pattern.compile(prop.getProperty("servidor.datos5"));
+		Pattern dato1 = Pattern.compile("^[a-z 0-9]{1,9}$");
+		Pattern dato2 = Pattern.compile("^[a-z 0-9]{8,}$");
+		Pattern dato3 = Pattern.compile("\\w+\\.?\\w+@\\w+\\.\\w+");
 		
 		String nick = request.getParameter("nick");
 		String mail = request.getParameter("mail");

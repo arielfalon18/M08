@@ -5,16 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<h1>Introduce login</h1>
-    <form action="loginE" method="POST">
-        nick <input type="text" name="nick">
-        <br>
-        <br>
-        pass <input type="text" name="pass"><br>
-        <br>
-        <input type="submit" value="enviar">
-    </form>
+	<div class="container">
+		<h1>Introduce login</h1>
+	    <form action="loginE" method="POST">
+	    	<div class="form-group">
+			    <label >Nick</label>
+			    <input type="text" class="form-control" name="nick"  placeholder="Introduce tu Nick">
+		  	</div>
+		  	<div class="form-group">
+			    <label >Password</label>
+			    <input type="text" class="form-control" name="pass"  placeholder="Introduce tu Password">
+		  	</div>
+	        
+	        <input class="btn btn-primary" type="submit" value="enviar">
+	    </form>
+	</div>
 </body>
 </html>
