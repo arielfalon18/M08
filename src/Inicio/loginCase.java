@@ -1,5 +1,8 @@
 package Inicio;
-
+/**
+ * @author Ariel Falon
+ *
+ */
 import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,20 +10,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class loginCase {
 	private loginCase() {}
-	public static boolean insertUser(String user,String upass, String uEmail) throws SQLException {
+	/**
+	 * 
+	 * @param user
+	 * @param upass
+	 * @param uEmail
+	 * @return
+	 * @throws SQLException
+	 * Te busca un nombre  con el dato introducido y si ese nombre no existe pues 
+	 * te lo creara si existe no hara nada 
+	 */
+	static boolean insertUser(String user,String upass, String uEmail) throws SQLException {
 		Connection con;
-		
-		con = ConnectionDB.getConection();
+		Connection datos=ConnectionDB.getConection();
+		con = datos;
 		PreparedStatement ps =null;
-		
+		String consultaN;
 		PreparedStatement psN =null;
 		Connection conN;
-		conN = ConnectionDB.getConection();
+		conN = datos;
 		try {
 			
-			String consultaN="select * from usuario where NOMBRE=?;";
+			consultaN="select * from usuario where NOMBRE=?;";
 			psN = conN.prepareStatement(consultaN);
 			psN.setString(1, user);
 			try (ResultSet Respuesta = psN.executeQuery()){
@@ -31,8 +45,8 @@ public class loginCase {
 					
 					
 				}else {
-					String consulta ="insert into usuario (nombre,email,password) VALUES (?,?,?);";
-					ps = con.prepareStatement(consulta);
+					String consultaB ="insert into usuario (nombre,email,password) VALUES (?,?,?);";
+					ps = con.prepareStatement(consultaB);
 					ps.setString(1, user);
 					ps.setString(2, upass);
 					ps.setString(3, uEmail);
@@ -43,8 +57,6 @@ public class loginCase {
 					}
 				}
 			}
-			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -56,7 +68,6 @@ public class loginCase {
 				e.printStackTrace();
 			}
 			psN.close();
-			ps.close();
 		}
 		return false;
 	}

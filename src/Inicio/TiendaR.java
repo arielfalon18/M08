@@ -1,7 +1,12 @@
 package Inicio;
-
+/**
+ * @author Ariel Falon 
+ */
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Array;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,13 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.util.Properties;
-import java.io.InputStream;
-import java.io.FileInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 
 /**
@@ -26,10 +26,9 @@ import java.util.logging.Logger;
 public class TiendaR extends HttpServlet {
 	Properties prop = new Properties();
 	InputStream is = null;
-	Pattern dato2 =null;
-	final Logger LOGGER = Logger.getLogger("Inicio");
 	private static final long serialVersionUID = 1L;
-       
+	final Logger LOGGER = Logger.getLogger("Inicio");
+	Pattern dato2 =null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -40,6 +39,7 @@ public class TiendaR extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -48,6 +48,7 @@ public class TiendaR extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * Te comprobara si introduces todos los botones esto te insertara los datos correspondiente si esta todo bien te llevara al fichero correspondiente
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
@@ -55,7 +56,9 @@ public class TiendaR extends HttpServlet {
 			prop.load(is);
 		} catch(IOException e) {
 			LOGGER.log(Level.SEVERE, e.toString());
+			
 		}
+ 
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		//EXPRESIONES REGULARES

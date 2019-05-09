@@ -1,5 +1,8 @@
 package Inicio;
-
+/**
+ * @author Ariel Falon
+ *
+ */
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,6 +35,8 @@ public class loginE extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * Verifica si el nombre y el password introducionos estan bien si no pues 
+	 * Si esta bien te llevara al fichero bienvenido o al fichero error
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

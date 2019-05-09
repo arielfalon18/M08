@@ -1,8 +1,16 @@
 package Inicio;
-
+/**
+ * @author Ariel Falon
+ */
 import java.beans.Statement;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.*;
 
 import javax.servlet.ServletException;
@@ -10,11 +18,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.io.InputStream;
-import java.io.FileInputStream;
 
 
 
@@ -53,11 +56,13 @@ public class registroV extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * Te realizara el properties para las constraseñas y tambien te y vera si los las variables estan bien realizadas
+	 * si esta todo bien te llevara al fichero correcto si esta mal te llevara al fichero incorrecto
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			is = new FileInputStream("/datos.properties");
-			prop.load(is);
+			
+			prop.load(new FileInputStream("datos.properties"));
 		} catch(IOException e) {
 			LOGGER.log(Level.SEVERE, e.toString());
 		}
@@ -74,10 +79,6 @@ public class registroV extends HttpServlet {
 		Matcher Comprobarpass = dato2.matcher(pass);
 		Connection con=null;
 		Statement stmt=null;
-		
-		
-		
-		
 			if(ComprobarCorreo.find() && ComprobarNick.find()) {
 				if(Comprobarpass.find()) {
 					
@@ -89,7 +90,6 @@ public class registroV extends HttpServlet {
 							response.sendRedirect("YaexisteUsuario.jsp");
 						}
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						LOGGER.log(Level.SEVERE, e.toString());
 					}
 				}else {
@@ -98,6 +98,7 @@ public class registroV extends HttpServlet {
 			}else {
 				response.sendRedirect("ErrorC.jsp");
 			}	
+		
 		
 	}
 
